@@ -82,5 +82,19 @@
         }
     }
 }
+@media (max-height: 700px) {
+    article {
+        zoom: 0.70;
+        height: 90%;
+    }
+
+    body {
+        height: 100dvh;
+    }
+
+    #przyciski {
+        margin-top: 30%;
+    }
+}
 
 
