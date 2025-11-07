@@ -63,12 +63,12 @@ article {
 @media (max-width: 768px) {
     article {
         zoom: 0.70;
-        height: 57%;
     }
     body{
         height: 100dvh;
     }
 }
+
 
 
 
