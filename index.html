@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalkulator</title>
-    <link rel="stylesheet" href="kalkulator.css">
+    <link rel="stylesheet" href="kalkulator.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <article>
-        <div id="wyswietlacz">0</div>
+      <div id="wyswietlacz">0</div>
 
-        <div id="przyciski">
-            <!-- Funkcje specjalne -->
-            <div class="przycisk" style="background: linear-gradient(#ef171700, #e3111100);" onclick="usun()">C</div>
-            <div class="przycisk" style="background: linear-gradient(#ef171700, #e3111100);">^</div>
-            <div class="przycisk" style="background: linear-gradient(#ef171700, #e3111100);">%</div>
-            <div class="przycisk" style="background: linear-gradient(#d513138b, #ce23236f);">/</div>
-
-            <!-- Liczby i operatory -->
-            <div class="przycisk">7</div>
-            <div class="przycisk">8</div>
-            <div class="przycisk">9</div>
-            <div class="przycisk" style="background: linear-gradient(#d513138b, #ce23236f);">*</div>
-
-            <div class="przycisk">4</div>
-            <div class="przycisk">5</div>
-            <div class="przycisk">6</div>
-            <div class="przycisk" style="background: linear-gradient(#d513138b, #ce23236f);">-</div>
-
-            <div class="przycisk">1</div>
-            <div class="przycisk">2</div>
-            <div class="przycisk">3</div>
-            <div class="przycisk" style="background: linear-gradient(#d513138b, #ce23236f);">+</div>
-
-            <!-- Dolny rząd -->
-            <div class="przycisk" style="margin-left:10px; width: 210px; border-radius: 200px;">0</div>
-            <div class="przycisk">.</div>
-            <div class="przycisk" style="background: linear-gradient(#d513138b, #ce23236f);" onclick="liczenie()">=
-            </div>
+      <div id="przyciski">
+        <!-- Funkcje specjalne -->
+        <div
+          class="przycisk"
+          style="background: linear-gradient(#ef171700, #e3111100)"
+          onclick="usun()"
+        >
+          C
         </div>
+        <div
+          class="przycisk"
+          style="background: linear-gradient(#ef171700, #e3111100)"
+        >
+          ^
+        </div>
+        <div
+          class="przycisk"
+          style="background: linear-gradient(#ef171700, #e3111100)"
+        >
+          %
+        </div>
+        <div
+          class="przycisk kolor"
+        >
+          /
+        </div>
+
+        <!-- Liczby i operatory -->
+        <div class="przycisk">7</div>
+        <div class="przycisk">8</div>
+        <div class="przycisk">9</div>
+        <div
+          class="przycisk kolor"
+        >
+          *
+        </div>
+
+        <div class="przycisk">4</div>
+        <div class="przycisk">5</div>
+        <div class="przycisk">6</div>
+        <div
+          class="przycisk kolor"
+        >
+          -
+        </div>
+
+        <div class="przycisk">1</div>
+        <div class="przycisk">2</div>
+        <div class="przycisk">3</div>
+        <div
+          class="przycisk kolor"
+        >
+          +
+        </div>
+
+        <!-- Dolny rząd -->
+        <div
+          class="przycisk"
+          style="margin-left: 10px; width: 210px; border-radius: 200px"
+        >
+          0
+        </div>
+        <div class="przycisk">.</div>
+        <div
+          class="przycisk kolor"
+          onclick="liczenie()"
+        >
+          =
+        </div>
+      </div>
     </article>
     <script>
-        let sklejonyText = "";
-        let wynikPokazany = false;
-        const wyswietlacz = document.getElementById("wyswietlacz");
+      let sklejonyText = "";
+      let wynikPokazany = false;
+      const wyswietlacz = document.getElementById("wyswietlacz");
 
-        document.querySelectorAll(".przycisk").forEach(div => {
-            div.addEventListener("click", () => {
-                const wartosc = div.textContent;
+      document.querySelectorAll(".przycisk").forEach((div) => {
+        div.addEventListener("click", () => {
+          const wartosc = div.textContent;
 
-                if (wartosc === "C" || wartosc === "=") return;
+          if (wartosc === "C" || wartosc === "=") return;
 
-              
-                if (wynikPokazany) {
-                    wynikPokazany = false;
-                }
+          if (wynikPokazany) {
+            wynikPokazany = false;
+          }
 
-                if (sklejonyText.length + wartosc.length > 12) return;
+          if (sklejonyText.length + wartosc.length > 12) return;
 
-                sklejonyText += wartosc;
-                wyswietlacz.textContent = sklejonyText;
-            });
+          sklejonyText += wartosc;
+          wyswietlacz.textContent = sklejonyText;
         });
+      });
 
-        function usun() {
-            location.reload(true);
+      function usun() {
+        location.reload(true);
+      }
+
+      function liczenie() {
+        try {
+          let wynik = math.evaluate(sklejonyText);
+
+          if (wynik.toString().length > 12) {
+            wynik = parseFloat(wynik.toPrecision(6)).toExponential();
+          }
+
+          wyswietlacz.textContent = wynik;
+          sklejonyText = wynik.toString();
+          wynikPokazany = true;
+        } catch (error) {
+          console.error("Błąd podczas obliczeń:", error);
+          wyswietlacz.textContent = "Błąd";
+          sklejonyText = "";
+          wynikPokazany = false;
         }
-
-        function liczenie() {
-            try {
-                let wynik = math.evaluate(sklejonyText);
-
-             
-                if (wynik.toString().length > 12) {
-                    wynik = parseFloat(wynik.toPrecision(6)).toExponential();
-                }
-
-                wyswietlacz.textContent = wynik;
-                sklejonyText = wynik.toString();
-                wynikPokazany = true;
-            } catch (error) {
-                console.error("Błąd podczas obliczeń:", error);
-                wyswietlacz.textContent = "Błąd";
-                sklejonyText = "";
-                wynikPokazany = false;
-            }
-        }
+      }
     </script>
-</body>
+  </body>
 </html>
