@@ -12,7 +12,7 @@ body {
 }
 
 article {
-    height: 79%;
+    height: 80%;
     width: 500px;
     border-radius: 35px;
     box-shadow: 0 0 5em 1.5em rgba(0, 0, 0, 0.61);
@@ -52,7 +52,7 @@ article {
 #przyciski {
     width: 450px;
     margin-left: 3%;
-    margin-top: 160px;
+    margin-top: 180px;
     height: 70%;
     position: absolute;
 }
@@ -65,7 +65,11 @@ article {
         zoom: 0.70;
         height: 57%;
     }
+    body{
+        height: 100dvh;
+    }
 }
+
 
 
 
