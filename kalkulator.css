@@ -63,25 +63,19 @@
         font-size: 185%;
     }
 }
+@media (max-height: 700px) {
+    article {
+        zoom: 0.70;
+        height: 90%;
+    }
 
-@media (max-width: 30000px) {
-    @media (max-height: 750px) {
+    body {
+        height: 100dvh;
+    }
 
-
-        article {
-            zoom: 0.70;
-            height: 90%;
-        }
-
-        body {
-            height: 100dvh;
-        }
-
-        #przyciski {
-            margin-top: 30%;
-        }
+    #przyciski {
+        margin-top: 30%;
     }
 }
-
 
 
