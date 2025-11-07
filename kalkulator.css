@@ -61,5 +61,11 @@ article {
     transform: scale(0.95);
     font-size: 185%;
 }
+@media (max-width: 768px) {
+    body {
+        zoom: 0.75;
+    }
+}
+
 
 
