@@ -14,62 +14,26 @@
 
       <div id="przyciski">
         <!-- Funkcje specjalne -->
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#ef171700, #e3111100)"
-          onclick="usun()"
-        >
-          C
-        </div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#ef171700, #e3111100)"
-        >
-          ^
-        </div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#ef171700, #e3111100)"
-        >
-          %
-        </div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#d513138b, #ce23236f)"
-        >
-          /
-        </div>
+        <div class="przycisk przycisk--spec" onclick="usun()">C</div>
+        <div class="przycisk przycisk--spec">^</div>
+        <div class="przycisk przycisk--spec">%</div>
+        <div class="przycisk przycisk--op">/</div>
 
         <!-- Liczby i operatory -->
         <div class="przycisk">7</div>
         <div class="przycisk">8</div>
         <div class="przycisk">9</div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#d513138b, #ce23236f)"
-        >
-          *
-        </div>
+        <div class="przycisk przycisk--op">*</div>
 
         <div class="przycisk">4</div>
         <div class="przycisk">5</div>
         <div class="przycisk">6</div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#d513138b, #ce23236f)"
-        >
-          -
-        </div>
+        <div class="przycisk przycisk--op">-</div>
 
         <div class="przycisk">1</div>
         <div class="przycisk">2</div>
         <div class="przycisk">3</div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#d513138b, #ce23236f)"
-        >
-          +
-        </div>
+        <div class="przycisk przycisk--op">+</div>
 
         <!-- Dolny rząd -->
         <div
@@ -79,13 +43,7 @@
           0
         </div>
         <div class="przycisk">.</div>
-        <div
-          class="przycisk"
-          style="background: linear-gradient(#d513138b, #ce23236f)"
-          onclick="liczenie()"
-        >
-          =
-        </div>
+        <div class="przycisk przycisk--op" onclick="liczenie()">=</div>
       </div>
     </article>
     <script>
