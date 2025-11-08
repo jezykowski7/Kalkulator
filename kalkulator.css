@@ -25,6 +25,7 @@ article {
   justify-content: center;
   background: linear-gradient(#ffffff4f, #ffffff2c);
   backdrop-filter: blur(3vw);
+  border: 3px solid rgb(133, 9, 9);
 }
 
 #wyswietlacz {
@@ -65,6 +66,15 @@ article {
   transform: scale(0.95);
   font-size: 185%;
 }
+
+.przycisk--spec {
+  background: linear-gradient(#ef171700, #e3111100);
+}
+
+.przycisk--op {
+  background: linear-gradient(#d513138b, #ce23236f);
+}
+
 @media (max-height: 750px) {
   article {
     zoom: 0.6;
@@ -72,47 +82,44 @@ article {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background: #2f0982;
+    background: #c208c2;
     background: linear-gradient(
       50deg,
-      rgba(47, 9, 130, 1) 17%,
-      rgba(42, 42, 199, 1) 50%,
-      rgba(0, 98, 255, 1) 100%
+      rgba(194, 8, 194, 1) 17%,
+      rgba(126, 18, 184, 1) 60%,
+      rgba(0, 43, 255, 0.92) 100%
     );
   }
 
   article {
     background: linear-gradient(
-      rgba(8, 30, 172, 0.501),
+      rgba(93, 38, 221, 0.516),
       rgba(161, 14, 198, 0.512)
     );
     box-shadow: 0 0 5em 1.5em rgba(0, 0, 0, 0.8);
+    border: 3px solid rgb(42, 57, 169);
   }
 
   #wyswietlacz {
-    border: 4px solid
-      linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.3));
-    background-color: rgba(171, 100, 216, 0.267);
+    border: 4px solid rgba(11, 3, 153, 0.537);
+    background-color: rgb(148, 37, 217);
     backdrop-filter: blur(30px);
   }
 
   .przycisk {
     background: linear-gradient(
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05)
+      rgba(221, 17, 173, 0.521),
+      rgba(169, 15, 153, 0.711)
     );
+  }
+  .przycisk--spec {
+    background: linear-gradient(#6c23bfa3, #2f52d1bd);
   }
 
   .przycisk--op {
-    background: linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.3));
-  }
-
-  .przycisk--zero {
     background: linear-gradient(
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05)
+      rgba(255, 0, 55, 0.516),
+      rgba(255, 0, 111, 0.384)
     );
   }
 }
-
-
