@@ -8,14 +8,12 @@ body {
   align-items: center;
   color: white;
   background: #833ab4;
-  --bg: linear-gradient(
+  background: linear-gradient(
     67deg,
     rgba(131, 58, 180, 1) 0%,
     rgba(253, 29, 29, 1) 50%,
     rgba(252, 176, 69, 1) 100%
   );
-  background: var(--bg);
-  transition: background 1.2s ease-in-out;
 }
 
 article {
@@ -66,9 +64,6 @@ article {
 .przycisk:hover {
   transform: scale(0.95);
   font-size: 185%;
-}
-.kolor {
-  background: linear-gradient(#d513138b, #ce23236f);
 }
 @media (max-height: 750px) {
   article {
