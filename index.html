@@ -34,7 +34,8 @@
           %
         </div>
         <div
-          class="przycisk kolor"
+          class="przycisk"
+          style="background: linear-gradient(#d513138b, #ce23236f)"
         >
           /
         </div>
@@ -44,7 +45,8 @@
         <div class="przycisk">8</div>
         <div class="przycisk">9</div>
         <div
-          class="przycisk kolor"
+          class="przycisk"
+          style="background: linear-gradient(#d513138b, #ce23236f)"
         >
           *
         </div>
@@ -53,7 +55,8 @@
         <div class="przycisk">5</div>
         <div class="przycisk">6</div>
         <div
-          class="przycisk kolor"
+          class="przycisk"
+          style="background: linear-gradient(#d513138b, #ce23236f)"
         >
           -
         </div>
@@ -62,7 +65,8 @@
         <div class="przycisk">2</div>
         <div class="przycisk">3</div>
         <div
-          class="przycisk kolor"
+          class="przycisk"
+          style="background: linear-gradient(#d513138b, #ce23236f)"
         >
           +
         </div>
@@ -76,7 +80,8 @@
         </div>
         <div class="przycisk">.</div>
         <div
-          class="przycisk kolor"
+          class="przycisk"
+          style="background: linear-gradient(#d513138b, #ce23236f)"
           onclick="liczenie()"
         >
           =
@@ -90,9 +95,23 @@
 
       document.querySelectorAll(".przycisk").forEach((div) => {
         div.addEventListener("click", () => {
-          const wartosc = div.textContent;
+          const wartosc = div.textContent.trim();
+          const operatory = ["+", "-", "*", "/", "^", "%"];
 
           if (wartosc === "C" || wartosc === "=") return;
+
+          if (
+            sklejonyText === "" &&
+            operatory.includes(wartosc) &&
+            wartosc !== "-"
+          )
+            return;
+
+          if (
+            operatory.includes(sklejonyText.slice(-1)) &&
+            operatory.includes(wartosc)
+          )
+            return;
 
           if (wynikPokazany) {
             wynikPokazany = false;
