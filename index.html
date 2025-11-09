@@ -91,7 +91,7 @@
           let wynik = math.evaluate(sklejonyText);
 
           if (wynik.toString().length > 12) {
-            wynik = parseFloat(wynik.toPrecision(6)).toExponential();
+            wynik = formatowanieLiczby(wynik);
           }
 
           wyswietlacz.textContent = wynik;
@@ -103,6 +103,16 @@
           sklejonyText = "";
           wynikPokazany = false;
         }
+      }
+      function formatowanieLiczby(num) {
+        let str = num.toString();
+
+        for (let i = 11; i >= 0; i--) {
+          let t = num.toExponential(i);
+          if (t.length <= 12) return t;
+        }
+
+        return num.toExponential(0);
       }
     </script>
   </body>
