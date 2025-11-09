@@ -82,28 +82,22 @@ article {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background: #c208c2;
+    background: #ff00ff;
     background: linear-gradient(
       50deg,
-      rgba(194, 8, 194, 1) 17%,
+      rgba(255, 0, 255, 1) 17%,
       rgba(126, 18, 184, 1) 60%,
-      rgba(0, 43, 255, 0.92) 100%
+      rgba(122, 13, 255, 1) 100%
     );
   }
 
   article {
-    background: linear-gradient(
-      rgba(93, 38, 221, 0.516),
-      rgba(161, 14, 198, 0.512)
-    );
     box-shadow: 0 0 5em 1.5em rgba(0, 0, 0, 0.8);
     border: 3px solid rgb(42, 57, 169);
   }
 
   #wyswietlacz {
     border: 4px solid rgba(11, 3, 153, 0.537);
-    background-color: rgb(148, 37, 217);
-    backdrop-filter: blur(30px);
   }
 
   .przycisk {
@@ -123,5 +117,4 @@ article {
     );
   }
 }
-
 
