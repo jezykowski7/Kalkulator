@@ -91,9 +91,7 @@
         try {
           let wynik = math.evaluate(sklejonyText);
 
-          if (wynik.toString().length > 12) {
-            wynik = formatowanieLiczby(wynik);
-          }
+          if (wynik.toString().length > 12) wynik = formatowanieLiczby(wynik);
 
           wyswietlacz.textContent = wynik;
           sklejonyText = wynik.toString();
