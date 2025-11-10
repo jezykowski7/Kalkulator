@@ -80,6 +80,11 @@ article {
     zoom: 0.6;
   }
 }
+@media (max-height: 200px) {
+  article {
+    zoom: 0.2;
+  }
+}
 @media (prefers-color-scheme: dark) {
   body {
     background: #ff00ff;
@@ -117,4 +122,5 @@ article {
     );
   }
 }
+
 
