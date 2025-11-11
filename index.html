@@ -47,6 +47,8 @@
       </div>
     </article>
     <script>
+      math.import({ "%": (a, b) => a * (b / 100) }, { override: true });
+
       let sklejonyText = "";
       let wynikPokazany = false;
       const wyswietlacz = document.getElementById("wyswietlacz");
@@ -85,17 +87,24 @@
       function usun() {
         wyswietlacz.textContent = "0";
         sklejonyText = "";
+        wynikPokazany = false;
       }
 
       function liczenie() {
         try {
           let wynik = math.evaluate(sklejonyText);
 
-          if (wynik.toString().length > 12) wynik = formatowanieLiczby(wynik);
+          if (wynik.toString().length > 12) {
+            wynik = formatowanieLiczby(wynik);
+            var wykladnik = Number(wynik.split("e")[1]);
+          }
 
-          wyswietlacz.textContent = wynik;
-          sklejonyText = wynik.toString();
-          wynikPokazany = true;
+          wypisywanie(wynik);
+
+          if (wykladnik <= 8) {
+            wynik = math.evaluate(sklejonyText);
+            wypisywanie(wynik);
+          }
         } catch (error) {
           console.error("Błąd podczas obliczeń:", error);
           wyswietlacz.textContent = "Błąd";
@@ -113,7 +122,11 @@
 
         return num.toExponential(0);
       }
+      function wypisywanie(wynik) {
+        wyswietlacz.textContent = wynik;
+        sklejonyText = wynik.toString();
+        wynikPokazany = true;
+      }
     </script>
   </body>
 </html>
-
