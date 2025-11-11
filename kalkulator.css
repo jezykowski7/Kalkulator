@@ -31,14 +31,13 @@ article {
 #wyswietlacz {
   width: 100%;
   height: 12.5%;
-  margin: 5% 5% 0 5%;
+  margin: 5% 4.5% 0 4.5%;
   backdrop-filter: blur(30px);
   border: 4px solid #e93b3b;
   border-radius: 13px;
   text-align: right;
   font-size: 400%;
   padding-top: 4%;
-  padding-right: 5px;
 }
 
 .przycisk {
@@ -80,6 +79,11 @@ article {
     zoom: 0.6;
   }
 }
+@media (max-height: 470px) {
+  article {
+    zoom: 0.4;
+  }
+}
 @media (prefers-color-scheme: dark) {
   body {
     background: #ff00ff;
@@ -117,8 +121,3 @@ article {
     );
   }
 }
-
-
-
-
-
