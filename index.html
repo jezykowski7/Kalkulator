@@ -127,6 +127,60 @@
         sklejonyText = wynik.toString();
         wynikPokazany = true;
       }
+      
+      function dodajZnak(wartosc) {
+      const operatory = ["+", "-", "*", "/", "^", "%"];
+
+      if (
+        sklejonyText === "" &&
+        operatory.includes(wartosc) &&
+        wartosc !== "-"
+      )
+        return;
+
+      if (
+        operatory.includes(sklejonyText.slice(-1)) &&
+        operatory.includes(wartosc)
+      )
+        return;
+
+      if (wynikPokazany) {
+        wynikPokazany = false;
+      }
+
+      if (sklejonyText.length + wartosc.length > 12) return;
+
+      sklejonyText += wartosc;
+      wyswietlacz.textContent = sklejonyText;
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const klawisz = e.key;
+
+      const cyfry = "0123456789";
+      const operatory = ["+", "-", "*", "/", "^", "%", "."];
+
+      if (cyfry.includes(klawisz)) {
+        dodajZnak(klawisz);
+      }
+
+      if (operatory.includes(klawisz)) {
+        dodajZnak(klawisz);
+      }
+
+      if (klawisz === "Enter") {
+        liczenie();
+      }
+
+      if (klawisz === "Backspace") {
+        sklejonyText = sklejonyText.slice(0, -1);
+        wyswietlacz.textContent = sklejonyText || "0";
+      }
+      if (klawisz.toLowerCase() === "c") {
+        usun();
+      }
+    });
     </script>
   </body>
 </html>
+
