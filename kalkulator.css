@@ -45,7 +45,7 @@ article {
   background: linear-gradient(#d982ec1e, #d367e12b);
   backdrop-filter: blur(30px);
   width: 100px;
-  height: 65px;
+  height: 100px;
   float: left;
   margin: 7px;
   font-size: 30px;
@@ -126,5 +126,6 @@ article {
     );
   }
 }
+
 
 
